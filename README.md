@@ -1,8 +1,8 @@
 # Parallel Execution of Sql Code
 
-An executable that runs SQL files placed in a folder according to the instructions provided by the user.  The instructions allow for arbitrary complex parallel execution.  Multiple examples are given.
+SQL coders may want to run jobs in parallel, but not know how.  (Sql server management studio allows only a single job to run per window.)  A solution is provide to this problem in the form of a program that runs a set of SQL files in parallel consist with the run instructions.  It contains an executable that runs SQL files placed in a folder according to the instructions provided by the user.  The instructions allow for arbitrary complex parallel execution.  Multiple examples are given.
 
-If folks within my healthcare system are interested in using this, I may place it on a SharePoint site to allow folks to upload and schedule jobs.  Please email if you are interested at ronald.hauser@(healthcare suffix)
+If you work within my healthcare system and are interested in this please send me an email, ronald.hauser@(healthcare suffix)
 
 ## Getting Started
 
