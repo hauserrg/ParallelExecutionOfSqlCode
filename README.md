@@ -10,7 +10,7 @@ Simply download the project and find the executable.  This project requires no p
 
 ## Tests
 
-The project has tests for serial execution, parallel execution (splits and merge), and tests for errors that may occur with the SQL code.
+The project has tests for serial execution, parallel execution (splits and merge), and tests for errors that may occur with the SQL code.  The tests also have examples for how to write the instructions for the program to follow.
 
 ## Brief Description on How It Works
 
