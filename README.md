@@ -12,6 +12,12 @@ Simply download the project and find the executable.  This project requires no p
 
 The project has tests for serial execution, parallel execution (splits and merge), and tests for errors that may occur with the SQL code.
 
+## Brief Description on How It Works
+
+Given a path to a set of SQL files, and instruction for how to run them, validate the instructions then execute the SQL files according to the instructions until (1) all files complete, or (2) an error occurs.  Report the files that were started to run, the files that finished running, the time it took between the start and end of the run (i.e., start to error or complete), and the result of the run.
+
+This program makes no assumptions about the state of the database before or after the run.  It’s up to the user to write code that can be overwritten or rolls back on error.
+
 ## Built With
 
 C# in Visual Studio
