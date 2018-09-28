@@ -2,7 +2,7 @@
 
 An executable that runs SQL files placed in a folder according to the instructions provided by the user.  The instructions allow for arbitrary complex parallel execution.  Multiple examples are given.
 
-If folks within my healthcare system are interested in using this, I may place it on a SharePoint site to allow folks to upload and schedule jobs.
+If folks within my healthcare system are interested in using this, I may place it on a SharePoint site to allow folks to upload and schedule jobs.  Please email if you are interested at ronald.hauser@(healthcare suffix)
 
 ## Getting Started
 
