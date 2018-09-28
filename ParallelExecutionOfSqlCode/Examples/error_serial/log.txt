@@ -1,0 +1,9 @@
+Node 1 has started.
+Node 1 has completed (Success)(9/28/2018 9:45:49 AM -> 9/28/2018 9:45:50 AM).
+Node 2 has started.
+Node 2 has completed (Success)(9/28/2018 9:45:50 AM -> 9/28/2018 9:45:53 AM).
+Node 3 has started.
+Node 3 has completed (Success)(9/28/2018 9:45:53 AM -> 9/28/2018 9:45:55 AM).
+Node 4 has started.
+Node 4 has completed (Error)(9/28/2018 9:45:55 AM -> 9/28/2018 9:45:55 AM).
+No other nodes were run.

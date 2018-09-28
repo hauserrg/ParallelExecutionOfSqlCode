@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfSingleNodeXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SingleNodeXml>
+    <FileName>myFile1.txt</FileName>
+    <Id>1</Id>
+    <Before />
+    <After>
+      <int>2</int>
+    </After>
+  </SingleNodeXml>
+  <SingleNodeXml>
+    <FileName>myFile2.txt</FileName>
+    <Id>2</Id>
+    <Before>
+      <int>1</int>
+    </Before>
+    <After>
+      <int>3</int>
+	  <int>4</int>
+    </After>
+  </SingleNodeXml>
+  <SingleNodeXml>
+    <FileName>myFile3.txt</FileName>
+    <Id>3</Id>
+    <Before>
+      <int>2</int>
+    </Before>
+    <After>
+      <int>5</int>
+    </After>
+  </SingleNodeXml>
+  <SingleNodeXml>
+    <FileName>myFile4.txt</FileName>
+    <Id>4</Id>
+    <Before>
+      <int>2</int>
+    </Before>
+    <After>
+      <int>5</int>
+    </After>
+  </SingleNodeXml>
+  <SingleNodeXml>
+    <FileName>myFile5.txt</FileName>
+    <Id>5</Id>
+    <Before>
+      <int>4</int>
+    </Before>
+    <After />
+  </SingleNodeXml>  
+</ArrayOfSingleNodeXml>

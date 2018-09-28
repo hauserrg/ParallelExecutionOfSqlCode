@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ParallelExecutionOfSqlCode.NodeFlow">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAEAACAAAAAAAQAACAAAAAAAAAAAAAAgAAAAIAI=</HashCode>
+      <FileName>NodeFlow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallelExecutionOfSqlCode.NodeFlowReader">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NodeFlowReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallelExecutionOfSqlCode.SingleNodeXml">
+    <Position X="1.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAQAA=</HashCode>
+      <FileName>SingleNodeXml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallelExecutionOfSqlCode.NodeFlowLogger">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAACAIAAAAAAAAAAAgAAAAEAAAAAEAAAAA=</HashCode>
+      <FileName>NodeFlowLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallelExecutionOfSqlCode.DI">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAIAAAABAACAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

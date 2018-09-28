@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelExecutionOfSqlCode", "ParallelExecutionOfSqlCode\ParallelExecutionOfSqlCode.csproj", "{0E58D288-08BF-4191-8B0B-1DA58ED193BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E58D288-08BF-4191-8B0B-1DA58ED193BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E58D288-08BF-4191-8B0B-1DA58ED193BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E58D288-08BF-4191-8B0B-1DA58ED193BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E58D288-08BF-4191-8B0B-1DA58ED193BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76AB8A13-C4C0-4A9D-8914-1BD9A1230281}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://yalelabmed.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ParallelExecutionOfSqlCode\\ParallelExecutionOfSqlCode.csproj
+		SccProjectName1 = ParallelExecutionOfSqlCode
+		SccLocalPath1 = ParallelExecutionOfSqlCode
+	EndGlobalSection
+EndGlobal

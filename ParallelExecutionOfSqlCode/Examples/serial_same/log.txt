@@ -1,0 +1,10 @@
+Node 1 has started.
+Node 1 has completed (Success)(9/28/2018 8:17:57 AM -> 9/28/2018 8:17:58 AM).
+Node 2 has started.
+Node 2 has completed (Success)(9/28/2018 8:17:58 AM -> 9/28/2018 8:17:59 AM).
+Node 3 has started.
+Node 3 has completed (Success)(9/28/2018 8:17:59 AM -> 9/28/2018 8:18:00 AM).
+Node 4 has started.
+Node 4 has completed (Success)(9/28/2018 8:18:00 AM -> 9/28/2018 8:18:01 AM).
+Node 5 has started.
+Node 5 has completed (Success)(9/28/2018 8:18:01 AM -> 9/28/2018 8:18:02 AM).

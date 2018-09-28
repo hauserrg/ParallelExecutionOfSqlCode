@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E58D288-08BF-4191-8B0B-1DA58ED193BC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ParallelExecutionOfSqlCode</RootNamespace>
+    <AssemblyName>ParallelExecutionOfSqlCode</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharedLibrary">
+      <HintPath>..\..\SharedLibrary\bin\Debug\SharedLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DI.cs" />
+    <Compile Include="NodeFlow.cs" />
+    <Compile Include="NodeFlowLogger.cs" />
+    <Compile Include="NodeFlowReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleNode.cs" />
+    <Compile Include="SingleNodeXml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Examples\error_merge\log.txt" />
+    <Content Include="Examples\error_merge\metadata.txt" />
+    <Content Include="Examples\error_merge\myFile1.txt" />
+    <Content Include="Examples\error_merge\myFile2.txt" />
+    <Content Include="Examples\error_merge\myFile3.txt" />
+    <Content Include="Examples\error_merge\myFile4.txt" />
+    <Content Include="Examples\error_merge\myFile5.txt" />
+    <Content Include="Examples\error_serial\log.txt" />
+    <Content Include="Examples\error_serial\metadata.txt" />
+    <Content Include="Examples\error_serial\myFile1.txt" />
+    <Content Include="Examples\error_serial\myFile2.txt" />
+    <Content Include="Examples\error_serial\myFile3.txt" />
+    <Content Include="Examples\error_serial\myFile4.txt" />
+    <Content Include="Examples\error_serial\myFile5.txt" />
+    <Content Include="Examples\error_split\log.txt" />
+    <Content Include="Examples\error_split\metadata.txt" />
+    <Content Include="Examples\error_split\myFile1.txt" />
+    <Content Include="Examples\error_split\myFile2.txt" />
+    <Content Include="Examples\error_split\myFile3.txt" />
+    <Content Include="Examples\error_split\myFile4.txt" />
+    <Content Include="Examples\error_split\myFile5.txt" />
+    <Content Include="Examples\merge_different\log.txt" />
+    <Content Include="Examples\merge_different\metadata_debug2.txt" />
+    <Content Include="Examples\merge_different\myFile1.txt" />
+    <Content Include="Examples\merge_different\myFile2.txt" />
+    <Content Include="Examples\merge_different\myFile3.txt" />
+    <Content Include="Examples\merge_different\myFile4.txt" />
+    <Content Include="Examples\merge_different\myFile5.txt" />
+    <Content Include="Examples\merge_same\log.txt" />
+    <Content Include="Examples\merge_same\metadata.txt" />
+    <Content Include="Examples\merge_same\myFile1.txt" />
+    <Content Include="Examples\merge_same\myFile2.txt" />
+    <Content Include="Examples\merge_same\myFile3.txt" />
+    <Content Include="Examples\merge_same\myFile4.txt" />
+    <Content Include="Examples\merge_same\myFile5.txt" />
+    <Content Include="Examples\serial_different\log.txt" />
+    <Content Include="Examples\serial_different\metadata.txt" />
+    <Content Include="Examples\serial_different\myFile1.txt" />
+    <Content Include="Examples\serial_different\myFile2.txt" />
+    <Content Include="Examples\serial_different\myFile3.txt" />
+    <Content Include="Examples\serial_different\myFile4.txt" />
+    <Content Include="Examples\serial_different\myFile5.txt" />
+    <Content Include="Examples\serial_same\log.txt" />
+    <Content Include="Examples\serial_same\metadata.txt" />
+    <Content Include="Examples\serial_same\myFile1.txt" />
+    <Content Include="Examples\serial_same\myFile2.txt" />
+    <Content Include="Examples\serial_same\myFile3.txt" />
+    <Content Include="Examples\serial_same\myFile4.txt" />
+    <Content Include="Examples\serial_same\myFile5.txt" />
+    <Content Include="Examples\split_different\log.txt" />
+    <Content Include="Examples\split_different\metadata.txt" />
+    <Content Include="Examples\split_different\myFile1.txt" />
+    <Content Include="Examples\split_different\myFile2.txt" />
+    <Content Include="Examples\split_different\myFile3.txt" />
+    <Content Include="Examples\split_different\myFile4.txt" />
+    <Content Include="Examples\split_different\myFile5.txt" />
+    <Content Include="Examples\split_same\log.txt" />
+    <Content Include="Examples\split_same\metadata.txt" />
+    <Content Include="Examples\split_same\myFile1.txt" />
+    <Content Include="Examples\split_same\myFile2.txt" />
+    <Content Include="Examples\split_same\myFile3.txt" />
+    <Content Include="Examples\split_same\myFile4.txt" />
+    <Content Include="Examples\split_same\myFile5.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
