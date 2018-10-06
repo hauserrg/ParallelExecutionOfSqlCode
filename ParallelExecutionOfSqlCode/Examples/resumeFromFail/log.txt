@@ -1,0 +1,8 @@
+Loaded completed nodes from prior run ('log.txt')
+Node 1 has completed in a prior run (Success)
+Node 2 has completed in a prior run (Success)
+Node 3 has started.
+Node 4 has started.
+Node 4 has completed (Error)(10/6/2018 7:19:39 AM -> 10/6/2018 7:19:39 AM).
+Node 3 has completed (StoppedByError)(10/6/2018 7:19:39 AM -> 10/6/2018 7:19:39 AM).
+No other nodes were run.

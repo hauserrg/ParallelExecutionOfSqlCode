@@ -39,6 +39,11 @@ namespace ParallelExecutionOfSqlCode
             this.Log(String.Format("Node {0} has completed ({1})({2} -> {3}).", singleNode.Id, singleNode.EndState, singleNode.TimeStart, singleNode.TimeEnd));
         }
 
+        internal void NodePriorComplete(SingleNode singleNode)
+        {
+            this.Log(String.Format("Node {0} has completed in a prior run (Success)", singleNode.Id.ToString()));
+        }
+
         /// <summary>
         /// When an error occurs log,
         /// 1. Change the nodes state to error, if it is was running during the error

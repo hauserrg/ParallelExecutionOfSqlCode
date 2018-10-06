@@ -14,6 +14,7 @@ namespace ParallelExecutionOfSqlCode
         private ConcurrentDictionary<SingleNode, bool> nodes;
         private DI di;
         private NodeFlowLogger log;
+        private List<int> CompleteIdsFromPriorRun;
 
         internal NodeFlow(ConcurrentDictionary<SingleNode, bool> nodes, DI di)
         {
@@ -27,11 +28,18 @@ namespace ParallelExecutionOfSqlCode
         {
             try
             {
-                while(nodes.Count > 0)
+                //Allow restart from a previous failed run.
+                CompleteIdsFromPriorRun = NodeFlowReader.LogReader(di);
+                if (CompleteIdsFromPriorRun.Count > 0)
+                    log.Log("Loaded completed nodes from prior run ('log.txt')");
+
+                //Run nodes
+                while (nodes.Count > 0)
                 {
                     var nodesToRun = FindNodesToRun();
                     foreach (var nodeToRun in nodesToRun)
                     {
+                        //Run the node
                         var task = RunNodeAsync(nodeToRun);
                         if (task.Exception != null)
                         {
@@ -55,16 +63,24 @@ namespace ParallelExecutionOfSqlCode
 
         private async Task RunNodeAsync(SingleNode nodeToRun)
         {
-            if (di.Debug)
+            if (CompleteIdsFromPriorRun.Contains(nodeToRun.Id))
+            {
+                RunPriorComplete(nodeToRun);
+            }
+            else if (di.Debug)
             {
                 await RunDebugAsync(nodeToRun);
-                return;
             }
             else
             {
                 await RunSQLAsync(nodeToRun);
-                return;
             }
+            RunAsyncComplete(nodeToRun);
+        }
+
+        private void RunPriorComplete(SingleNode nodeToRun)
+        {
+            log.NodePriorComplete(nodeToRun);
         }
 
         /// <summary>
@@ -77,7 +93,8 @@ namespace ParallelExecutionOfSqlCode
             log.NodeStart(nodeToRun);
             var sqlCode = File.ReadAllText(di.CreateFilePath(nodeToRun.FileName));
             await SharedLibrary.SqlTable.ExecuteNonQueryAsync(sqlCode, di.ConnectionString);
-            RunAsyncComplete(nodeToRun);
+            nodeToRun.EndState = EndState.Success; //1.
+            log.NodeEnd(nodeToRun);
         }
 
         /// <summary>
@@ -99,7 +116,8 @@ namespace ParallelExecutionOfSqlCode
                 await Task.Delay(sleep);
             }
 
-            RunAsyncComplete(nodeToRun);
+            nodeToRun.EndState = EndState.Success;
+            log.NodeEnd(nodeToRun);
         }
 
         /// <summary>
@@ -109,9 +127,6 @@ namespace ParallelExecutionOfSqlCode
         /// </summary>
         private void RunAsyncComplete(SingleNode nodeToRun)
         {
-            nodeToRun.EndState = EndState.Success; //1.
-            log.NodeEnd(nodeToRun);
-
             nodes.TryRemove(nodeToRun, out bool nodeRemoved); //2.
             foreach (var node in nodes) //3.
             {

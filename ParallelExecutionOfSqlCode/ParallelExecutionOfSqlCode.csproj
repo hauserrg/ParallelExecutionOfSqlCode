@@ -98,6 +98,13 @@
     <Content Include="Examples\merge_same\myFile3.txt" />
     <Content Include="Examples\merge_same\myFile4.txt" />
     <Content Include="Examples\merge_same\myFile5.txt" />
+    <Content Include="Examples\resumeFromFail\log.txt" />
+    <Content Include="Examples\resumeFromFail\metadata.txt" />
+    <Content Include="Examples\resumeFromFail\myFile1.txt" />
+    <Content Include="Examples\resumeFromFail\myFile2.txt" />
+    <Content Include="Examples\resumeFromFail\myFile3.txt" />
+    <Content Include="Examples\resumeFromFail\myFile4.txt" />
+    <Content Include="Examples\resumeFromFail\myFile5.txt" />
     <Content Include="Examples\serial_different\log.txt" />
     <Content Include="Examples\serial_different\metadata.txt" />
     <Content Include="Examples\serial_different\myFile1.txt" />
@@ -127,5 +134,6 @@
     <Content Include="Examples\split_same\myFile4.txt" />
     <Content Include="Examples\split_same\myFile5.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

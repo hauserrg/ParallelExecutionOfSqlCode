@@ -15,10 +15,8 @@ namespace ParallelExecutionOfSqlCode
         /// </summary>
         public string FolderPath { get; set; }
 
-
         private string metadataFile = "metadata.txt";
         private string logFile = "log.txt";
-
 
         /// <summary>
         /// Create the file path by appending the folder to the file

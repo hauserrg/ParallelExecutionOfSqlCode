@@ -16,7 +16,7 @@ namespace ParallelExecutionOfSqlCode
         internal static void Validate(DI di)
         {
             //ToDo
-            /*Is the path avlid - error
+            /*Is the path valid - error
              * Contains metadata.txt file - error
              * contains named list of files - error
              * all files are names - warning
@@ -27,6 +27,32 @@ namespace ParallelExecutionOfSqlCode
              * all before are afters - error
              * all numbers are in the named list of files - error
              * */
+        }
+
+        /// <summary>
+        /// Returns a list of integers that represent the Ids of node completed in a previous run.
+        /// For example, if the log file says "Node 1 has completed (Success)" then node 1 would be marked as previously run.
+        /// </summary>
+        /// <param name="di"></param>
+        /// <returns></returns>
+        internal static List<int> LogReader(DI di)
+        {
+            var completeIds = new List<int>();
+            if (File.Exists(di.LogFilePath()))
+            {
+                var lines = File.ReadAllLines(di.LogFilePath());
+                foreach (var line in lines)
+                {
+                    if(line.Contains("(Success)"))
+                    {
+                        var token = line.Split();
+                        int id;
+                        Int32.TryParse(token[1], out id);
+                        completeIds.Add(id);
+                    }
+                }
+            }
+            return completeIds;
         }
 
         /// <summary>

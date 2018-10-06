@@ -12,6 +12,7 @@ namespace ParallelExecutionOfSqlCode
         {
             //You could host this on SharePoint and allow jobs to schedule
 
+            //Note: "log.txt" and "metadata.txt" are reserved names within the folder.
             args = new string[3];
             args[0] = "true";
             args[1] = "";
@@ -23,7 +24,7 @@ namespace ParallelExecutionOfSqlCode
                 ConnectionString = args[1],
                 FolderPath = args[2]
             };
-
+            
             var nodes = NodeFlowReader.Load(di);
             NodeFlowReader.Validate(di);
             var nodeFlow = new NodeFlow(nodes, di);
