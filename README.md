@@ -18,6 +18,8 @@ Given a path to a set of SQL files, and instruction for how to run them, validat
 
 This program makes no assumptions about the state of the database before or after the run.  It’s up to the user to write code that can be overwritten or rolls back on error.
 
+Functionality was added to resume a failed run.  If the 'log.txt' file contains the string '(Success)' then that node is considered run.  Since the log file changes between runs, it may be in your best interest to save a copy of the log file to track successful nodes in the event of multiple errors.  
+
 ## Built With
 
 C# in Visual Studio
