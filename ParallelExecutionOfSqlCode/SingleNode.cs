@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ParallelExecutionOfSqlCode
 {
@@ -31,9 +32,9 @@ namespace ParallelExecutionOfSqlCode
         internal DateTime TimeStart { get; set; }
         internal DateTime TimeEnd { get; set; }
 
-        internal static ConcurrentDictionary<SingleNode, bool> ConvertXml(List<SingleNodeXml> singleNodeXml)
+        internal static ConcurrentDictionary<SingleNode, Task> ConvertXml(List<SingleNodeXml> singleNodeXml)
         {
-            var singleNodes = new ConcurrentDictionary<SingleNode, bool>();
+            var singleNodes = new ConcurrentDictionary<SingleNode, Task>();
             foreach (var nodeXml in singleNodeXml)
             {
                 var singleNode = new SingleNode()
@@ -44,7 +45,7 @@ namespace ParallelExecutionOfSqlCode
                     After = ConvertListToConcurrentDictionary(nodeXml.After),
                     EndState = EndState.NotRun
                 };
-                singleNodes.TryAdd(singleNode, false);
+                singleNodes.TryAdd(singleNode, null);
             }
             return singleNodes;
         }

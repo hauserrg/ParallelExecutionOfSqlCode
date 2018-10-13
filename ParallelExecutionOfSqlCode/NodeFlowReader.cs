@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ParallelExecutionOfSqlCode
 {
@@ -58,7 +59,7 @@ namespace ParallelExecutionOfSqlCode
         /// <summary>
         /// Load the metadata into NodeFlow
         /// </summary>
-        internal static ConcurrentDictionary<SingleNode, bool> Load(DI di)
+        internal static ConcurrentDictionary<SingleNode, Task> Load(DI di)
         {
             var singleNodeXml = SerializeHelper.Deserialize<List<SingleNodeXml>>(File.ReadAllText(di.MetadataFilePath()));
             return SingleNode.ConvertXml(singleNodeXml);

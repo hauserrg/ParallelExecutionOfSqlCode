@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,9 @@ namespace ParallelExecutionOfSqlCode
 
             //Note: "log.txt" and "metadata.txt" are reserved names within the folder.
             args = new string[3];
-            args[0] = "true";
-            args[1] = "";
-            args[2] = @"C:\Users\George\Desktop\NodeFlowFolder";
+            args[0] = "false"; //debug mode
+            args[1] = ConMgr.Get(Db.Troponin);
+            args[2] = @"C:\Users\VHACONHAUSER\Desktop\NodeFlowFolder";
 
             var di = new DI()
             {

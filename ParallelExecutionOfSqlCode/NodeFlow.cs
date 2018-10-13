@@ -11,19 +11,18 @@ namespace ParallelExecutionOfSqlCode
 {
     public class NodeFlow
     {
-        private ConcurrentDictionary<SingleNode, bool> nodes;
+        private ConcurrentDictionary<SingleNode, Task> nodes;
         private DI di;
         private NodeFlowLogger log;
         private List<int> CompleteIdsFromPriorRun;
 
-        internal NodeFlow(ConcurrentDictionary<SingleNode, bool> nodes, DI di)
+        internal NodeFlow(ConcurrentDictionary<SingleNode, Task> nodes, DI di)
         {
             this.nodes = nodes;
             this.di = di;
             this.log = new NodeFlowLogger(di);
         }
 
-        #pragma warning disable CS4014, CS1998
         internal void Run()
         {
             try
@@ -41,17 +40,23 @@ namespace ParallelExecutionOfSqlCode
                     {
                         //Run the node
                         var task = RunNodeAsync(nodeToRun);
-                        if (task.Exception != null)
+                        nodes[nodeToRun] = task;
+                    }
+                    Task.WaitAny(nodes.Values.Where(x => x != null).ToArray());
+
+                    //Look for errors in tasks
+                    foreach (var nodeTask in nodes.Where(x => x.Value != null))
+                    {
+                        if(nodeTask.Value.Status == TaskStatus.Faulted)
                         {
-                            nodeToRun.EndState = EndState.Error;
-                            log.NodeEnd(nodeToRun);
+                            nodeTask.Key.EndState = EndState.Error;
+                            log.NodeEnd(nodeTask.Key);
                             throw new Exception();
                         }
                     }
-                    Thread.Sleep(500);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 log.Error(nodes);
             }
@@ -65,7 +70,7 @@ namespace ParallelExecutionOfSqlCode
         {
             if (CompleteIdsFromPriorRun.Contains(nodeToRun.Id))
             {
-                RunPriorComplete(nodeToRun);
+                await RunPriorCompleteAsync(nodeToRun);
             }
             else if (di.Debug)
             {
@@ -78,9 +83,10 @@ namespace ParallelExecutionOfSqlCode
             RunAsyncComplete(nodeToRun);
         }
 
-        private void RunPriorComplete(SingleNode nodeToRun)
+        private async Task RunPriorCompleteAsync(SingleNode nodeToRun)
         {
             log.NodePriorComplete(nodeToRun);
+            await Task.Delay(100);
         }
 
         /// <summary>
@@ -127,7 +133,7 @@ namespace ParallelExecutionOfSqlCode
         /// </summary>
         private void RunAsyncComplete(SingleNode nodeToRun)
         {
-            nodes.TryRemove(nodeToRun, out bool nodeRemoved); //2.
+            var removedQ = nodes.TryRemove(nodeToRun, out Task nodeRemoved); //2.
             foreach (var node in nodes) //3.
             {
                 if (node.Key.Before.ContainsKey(nodeToRun.Id))

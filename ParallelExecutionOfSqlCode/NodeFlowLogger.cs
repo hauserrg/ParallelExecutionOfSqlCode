@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ParallelExecutionOfSqlCode
 {
@@ -50,7 +51,7 @@ namespace ParallelExecutionOfSqlCode
         /// 2. If the node had not yet started to run, log this fact
         /// </summary>
         /// <param name="nodes"></param>
-        internal void Error(ConcurrentDictionary<SingleNode, bool> nodes)
+        internal void Error(ConcurrentDictionary<SingleNode, Task> nodes)
         {
             foreach (var node in nodes)
             {
