@@ -31,8 +31,9 @@ This is a common design pattern for my work:
 Additional parameters were added to support this type of query.  Specifically,
 - Table name: The name of the final table including the schema.  
   - The database will add a suffix to this name to create the intermediate tables, so name collisons is a potential issue.  
-  - This table may or may not be initialized prior to the query.  The code will check, and create the table if needed.
+  - This table may or may not be initialized prior to the query.  The code will check, and create the table if needed.  If the table already exists, it will be truncated.
 - Parameters: Each query is permitted to have a set of strings.  For example, the query could have three intermediate tables each with two parameters.
+- Query: The first parameterized variable in the query ({0}) should be written as "into {0}".  The program will add a suffix to the table name and use this statement to build the intermediate table.  Other parameters will continue with "{1}", etc.
 
 ## Built With
 
