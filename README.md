@@ -20,6 +20,18 @@ This program makes no assumptions about the state of the database before or afte
 
 Functionality was added to resume a failed run.  If the 'log.txt' file contains the string '(Success)' then that node is considered run.  Since the log file changes between runs, it may be in your best interest to save a copy of the log file to track successful nodes in the event of multiple errors.  
 
+## Parallel-Merged-Parameterized Queries
+
+This is a common design pattern for my work:
+1. Run a query each time for an entity.  The index is optimized for this query.
+2. Store the results in an intermediate table
+3. Merge the results from each run into a single table.
+4. Delete the intermediate tables, leaving only the final table.  
+
+Additional parameters were added to support this type of query.  Specifically,
+- Table name: The name of the final table including the schema.  The database will add a suffix to this name to create the intermediate tables, so name collisons is a potential issue.
+- Parameters: Each query is permitted to have a set of strings.  For example, the query could have three intermediate tables each with two parameters.
+
 ## Built With
 
 C# in Visual Studio
